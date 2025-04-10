@@ -1,7 +1,9 @@
-import { authMiddleware } from 'next-auth/middleware';
-
-export default authMiddleware;  // Exporta el middleware de NextAuth
-
+import NextAuth from 'next-auth';
+import { authConfig } from './auth.config';
+ 
+export default NextAuth(authConfig).auth;
+ 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],  // Define las rutas donde aplicarás el middleware
+  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
 };
